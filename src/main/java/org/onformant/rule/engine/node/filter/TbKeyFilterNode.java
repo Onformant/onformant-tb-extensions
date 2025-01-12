@@ -1,5 +1,5 @@
 /**
- * Copyright © 2018-2024 The Thingsboard Authors
+ * Copyright © 2018-2024 The Onformant Authors
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.thingsboard.rule.engine.node.filter;
+package org.onformant.rule.engine.node.filter;
 
 import lombok.extern.slf4j.Slf4j;
 import org.thingsboard.common.util.JacksonUtil;

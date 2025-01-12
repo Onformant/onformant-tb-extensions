@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
 
-    Copyright © 2018-2024 The Thingsboard Authors
+    Copyright © 2018-2024 The Onformant Authors
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -20,19 +20,19 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <groupId>com.custom-nodes.tb</groupId>
-    <artifactId>rule-engine</artifactId>
+    <groupId>com.custom-extensions.onformant</groupId>
+    <artifactId>custom-extensions</artifactId>
     <version>1.0.0</version>
     <packaging>jar</packaging>
 
-    <name>Thingsboard Rule Engine Nodes</name>
-    <url>https://thingsboard.io</url>
-    <inceptionYear>2018</inceptionYear>
+    <name>Onformant Rule Engine Nodes and API extensions</name>
+    <url>https://onformant.io</url>
+    <inceptionYear>2015</inceptionYear>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <main.dir>${basedir}</main.dir>
-        <thingsboard.version>3.8.1</thingsboard.version>
+        <thingsboard.version>3.8.1PE</thingsboard.version>
         <lombok.version>1.18.32</lombok.version>
         <guava.version>33.1.0-jre</guava.version>
         <!--         TEST SCOPE         -->
@@ -88,6 +88,24 @@
             <artifactId>guava</artifactId>
             <scope>provided</scope>
             <version>${guava.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>jakarta.validation</groupId>
+            <artifactId>jakarta.validation-api</artifactId>
+            <version>3.0.2</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.thingsboard</groupId>
+            <artifactId>application</artifactId>
+            <scope>provided</scope>
+            <version>3.8.1</version>
+        </dependency>
+        <dependency>
+            <groupId>org.thingsboard.transport</groupId>
+            <artifactId>http</artifactId>
+            <scope>provided</scope>
+            <version>3.8.1</version>
         </dependency>
         <!--         TEST SCOPE         -->
         <dependency>
@@ -195,7 +213,7 @@
                     <configuration>
                         <header>${main.dir}/license-header-template.txt</header>
                         <properties>
-                            <owner>The Thingsboard Authors</owner>
+                            <owner>The Onformant Authors</owner>
                         </properties>
                         <excludes>
                             <exclude>**/.env</exclude>
@@ -216,6 +234,10 @@
                             <exclude>src/main/scripts/control/**</exclude>
                             <exclude>src/main/scripts/windows/**</exclude>
                             <exclude>src/main/resources/public/static/rulenode/**</exclude>
+                            <exclude>src/**</exclude>
+                            <exclude>**/docker-compose.yml</exclude>
+                            <exclude>Dockerfile</exclude>
+                            <exclude>pom.xml</exclude>
                         </excludes>
                         <mapping>
                             <proto>JAVADOC_STYLE</proto>

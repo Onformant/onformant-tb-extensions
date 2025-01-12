@@ -1,5 +1,5 @@
 /**
- * Copyright © 2018-2024 The Thingsboard Authors
+ * Copyright © 2018-2024 The Onformant Authors
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -13,20 +13,26 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.thingsboard.rule.engine.node.filter;
+package org.onformant.rule.engine.node.enrichment;
 
 import lombok.Data;
 import org.thingsboard.rule.engine.api.NodeConfiguration;
 
+/**
+ * Created by mshvayka on 10.08.18.
+ */
 @Data
-public class TbKeyFilterNodeConfiguration implements NodeConfiguration<TbKeyFilterNodeConfiguration> {
+public class TbGetSumIntoMetadataConfiguration implements NodeConfiguration<TbGetSumIntoMetadataConfiguration> {
 
-    private String key;
+    private String inputKey;
+    private String outputKey;
+
 
     @Override
-    public TbKeyFilterNodeConfiguration defaultConfiguration() {
-        TbKeyFilterNodeConfiguration configuration = new TbKeyFilterNodeConfiguration();
-        configuration.setKey(null);
+    public TbGetSumIntoMetadataConfiguration defaultConfiguration() {
+        TbGetSumIntoMetadataConfiguration configuration = new TbGetSumIntoMetadataConfiguration();
+        configuration.setInputKey("temperature");
+        configuration.setOutputKey("TemperatureSum");
         return configuration;
     }
 }
