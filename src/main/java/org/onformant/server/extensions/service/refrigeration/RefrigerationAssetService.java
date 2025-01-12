@@ -101,7 +101,9 @@ public class RefrigerationAssetService {
                                 new BaseAttributeKvEntry(new DoubleDataEntry(MIN_PRODUCT_TEMPERATURE, getValue(createAssetRequest.getMinProductTemperature(), -1)), lastUpdateTs),
                                 new BaseAttributeKvEntry(new DoubleDataEntry(MAX_PRODUCT_TEMPERATURE, getValue(createAssetRequest.getMaxProductTemperature(), 1)), lastUpdateTs),
                                 new BaseAttributeKvEntry(new DoubleDataEntry(MIN_AIR_TEMPERATURE, getValue(createAssetRequest.getMinAirTemperature(), 1)), lastUpdateTs),
-                                new BaseAttributeKvEntry(new DoubleDataEntry(MAX_AIR_TEMPERATURE, getValue(createAssetRequest.getMaxAirTemperature(), 1)), lastUpdateTs));
+                                new BaseAttributeKvEntry(new DoubleDataEntry(MAX_AIR_TEMPERATURE, getValue(createAssetRequest.getMaxAirTemperature(), 1)), lastUpdateTs),
+                                new BaseAttributeKvEntry(new DoubleDataEntry(MAX_HUMIDITY, getValue(createAssetRequest.getMaxHumidity(), 1)), lastUpdateTs),
+                                new BaseAttributeKvEntry(new DoubleDataEntry(MIN_HUMIDITY, getValue(createAssetRequest.getMinHumidity(), 1)), lastUpdateTs));
                         ListenableFuture<List<Long>> saveFuture = attributesService.save(tenantId, entityId, AttributeScope.SERVER_SCOPE, attributes);
                         sendAttributesUpdateMsg(tenantId, entityId, attributes);
                         return saveFuture;
