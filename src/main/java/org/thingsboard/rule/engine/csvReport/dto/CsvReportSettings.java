@@ -1,5 +1,5 @@
 /**
- * Copyright © 2018-2024 The Onformant Authors
+ * Copyright © 2018 The Thingsboard Authors
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -13,20 +13,20 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.thingsboard.rule.engine.node.filter;
+package org.thingsboard.rule.engine.csvReport.dto;
 
 import lombok.Data;
-import org.thingsboard.rule.engine.api.NodeConfiguration;
+import org.thingsboard.rule.engine.csvReport.GroupingInterval;
+
+import java.util.List;
+import java.util.UUID;
 
 @Data
-public class TbKeyFilterNodeConfiguration implements NodeConfiguration<TbKeyFilterNodeConfiguration> {
-
-    private String key;
-
-    @Override
-    public TbKeyFilterNodeConfiguration defaultConfiguration() {
-        TbKeyFilterNodeConfiguration configuration = new TbKeyFilterNodeConfiguration();
-        configuration.setKey(null);
-        return configuration;
-    }
+public class CsvReportSettings {
+    private List<UUID> assetIds;
+    private UUID userId;
+    private String zoneId;
+    private GroupingInterval groupingInterval;
 }
+
+
